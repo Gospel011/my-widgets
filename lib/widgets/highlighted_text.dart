@@ -9,7 +9,7 @@ class HiglightedText extends StatelessWidget {
       {super.key,
       this.highlightedText,
       this.highlightedStyle = const TextStyle(
-          color: Colors.deepPurple)});
+          color: Colors.deepPurple, fontWeight: FontWeight.w500)});
 
   /// The entire text displayed on screen
   final String text;
@@ -18,7 +18,7 @@ class HiglightedText extends StatelessWidget {
   final String? highlightedText;
 
   /// The text style of the highlighted text. By default the color is set to
-  /// [Colors.deepPurple]
+  /// [Colors.deepPurple] and fontWeight to [FontWeight.w500]
   final TextStyle highlightedStyle;
 
   @override
@@ -35,7 +35,7 @@ class HiglightedText extends StatelessWidget {
 
         // match highlighted text
         final RegExp highlight =
-            RegExp(highlightedText ?? '', caseSensitive: false);
+            RegExp(highlightedText ?? '', caseSensitive: false, dotAll: true);
 
         if (highlight.hasMatch(text)) {
           // get first match
