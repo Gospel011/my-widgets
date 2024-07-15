@@ -42,15 +42,20 @@ class HiglightedText extends StatelessWidget {
           final matches = highlight.firstMatch(text);
           final String match = matches![0]!;
 
+          // extract start and end index of substring
           final startIndex = text.indexOf(match);
           final endIndex = startIndex + match.length;
+
+          // extract substring
           final String substring = text.substring(startIndex, endIndex);
 
+          // build text spans
           final firstSplit = TextSpan(text: text.substring(0, startIndex));
           final lastSplit = TextSpan(text: text.substring(endIndex));
           final subStringSpan =
               TextSpan(text: substring, style: highlightedStyle);
-
+          
+          // set spans
           spans = [firstSplit, subStringSpan, lastSplit];
         }
       } else {
